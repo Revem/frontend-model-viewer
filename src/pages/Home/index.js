@@ -1,6 +1,6 @@
 import { Sheet, Typography } from '@mui/joy';
 import { Card } from '@mui/material';
-import Atenas from '../../assets/ae86.glb';
+import Atenas from '../../assets/Conjunto_Atenas_OFF_NATOFF_V01.glb';
 
 
 export default function Home() {
