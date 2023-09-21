@@ -16,9 +16,7 @@ Para executar a parte frontend do projeto, siga estas etapas:
   
 
 ```bash
-
 git  clone  https://github.com/revem/frontend-model-viewer.git
-
 ```
 
 2. Navegue até o diretório do frontend:
@@ -26,9 +24,7 @@ git  clone  https://github.com/revem/frontend-model-viewer.git
   
 
 ```bash
-
 cd  frontend
-
 ```
 
 3. Instale as dependências do projeto:
@@ -36,9 +32,7 @@ cd  frontend
   
 
 ```bash
-
 npm  install
-
 ```
 
   
@@ -48,9 +42,7 @@ npm  install
   
 
 ```bash
-
 npm  start
-
 ```
 
 5. O aplicativo frontend será executado na porta 3000. Acesse-o em seu navegador em:
@@ -58,9 +50,7 @@ npm  start
   
 
 ```
-
 http://localhost:3000
-
 ```
 
   
@@ -100,25 +90,19 @@ Se você deseja contribuir para este projeto, siga estas etapas:
 2. Crie um branch para suas alterações:
 
 ```bash
-
 git  checkout  -b  minha-nova-funcionalidade
-
 ```
 
 3. Faça suas alterações e faça commit delas:
 
 ```bash
-
 git  commit  -m  "Adicionei uma nova funcionalidade"
-
 ```
 
 4. Faça o push das alterações para o seu fork:
 
 ```bash
-
 git  push  origin  minha-nova-funcionalidade
-
 ```
 
   
