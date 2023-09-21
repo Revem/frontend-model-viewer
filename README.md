@@ -1,7 +1,7 @@
 
 #  Frontend - Model Viewer - Desafio Técnico Bugaboo Studio
 
-Este é o README.md para a parte frontend do Desafio Técnico - Gerenciador de Arquivos GLB com Integração ao Model Viewer proposto pela BugabooStudio. Este sistema web permite aos usuários fazer o upload de arquivos GLB (formato de arquivo 3D) e visualizá-los usando o Model Viewer.
+Essa é a parte frontend do Desafio Técnico - Gerenciador de Arquivos GLB com Integração ao Model Viewer proposto pela BugabooStudio. Este sistema web permite aos usuários fazer o upload de arquivos GLB (formato de arquivo 3D) e visualizá-los usando o Model Viewer.
 
   
 
