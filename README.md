@@ -24,7 +24,7 @@ git  clone  https://github.com/revem/frontend-model-viewer.git
   
 
 ```bash
-cd  frontend
+cd  frontend-model-viewer
 ```
 
 3. Instale as dependências do projeto:
