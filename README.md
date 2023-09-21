@@ -1,70 +1,132 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#  Frontend - Model Viewer - Desafio Técnico Bugaboo Studio
 
-## Available Scripts
+Este é o README.md para a parte frontend do Desafio Técnico - Gerenciador de Arquivos GLB com Integração ao Model Viewer proposto pela BugabooStudio. Este sistema web permite aos usuários fazer o upload de arquivos GLB (formato de arquivo 3D) e visualizá-los usando o Model Viewer.
 
-In the project directory, you can run:
+  
 
-### `npm start`
+##  Instruções de Uso
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para executar a parte frontend do projeto, siga estas etapas:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  
 
-### `npm test`
+1. Clone este repositório:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  
 
-### `npm run build`
+```bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git  clone  https://github.com/seu-usuario/seu-repositorio.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navegue até o diretório do frontend:
 
-### `npm run eject`
+  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+cd  frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Instale as dependências do projeto:
 
-## Learn More
+  
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+npm  install
 
-### Code Splitting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  
 
-### Analyzing the Bundle Size
+4. Inicie o servidor de desenvolvimento:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  
 
-### Making a Progressive Web App
+```bash
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+npm  start
 
-### Advanced Configuration
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+5. O aplicativo frontend será executado na porta 3000. Acesse-o em seu navegador em:
 
-### Deployment
+  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `npm run build` fails to minify
+http://localhost:3000
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+
+  
+
+6. Você deve criar uma conta e fazer login para usar o sistema.
+
+  
+
+##  Recursos e Funcionalidades
+
+- Autenticação de Usuário: Os usuários podem fazer login usando um nome de usuário e senha. A autenticação está integrada com a conta do usuário para verificar as permissões.
+
+  
+
+- Upload de Arquivo GLB: Os usuários autenticados podem fazer upload de arquivos GLB válidos. O formato do arquivo é validado antes de ser armazenado.
+
+  
+
+- Gerenciamento de Arquivos: Os arquivos GLB enviados pelos usuários são listados em uma página dedicada.
+
+  
+
+- Integração com Model Viewer: O Model Viewer é usado para exibir os arquivos GLB carregados, fornecendo uma visualização dedicada para cada arquivo GLB.
+
+  
+
+##  Como Contribuir
+
+Se você deseja contribuir para este projeto, siga estas etapas:
+
+  
+
+1. Faça um fork deste repositório.
+
+  
+
+2. Crie um branch para suas alterações:
+
+```bash
+
+git  checkout  -b  minha-nova-funcionalidade
+
+```
+
+3. Faça suas alterações e faça commit delas:
+
+```bash
+
+git  commit  -m  "Adicionei uma nova funcionalidade"
+
+```
+
+4. Faça o push das alterações para o seu fork:
+
+```bash
+
+git  push  origin  minha-nova-funcionalidade
+
+```
+
+  
+
+5. Abra um pull request neste repositório para revisão.
+
+  
+
+##  Contato
+
+Se você tiver alguma dúvida ou precisar de assistência, sinta-se à vontade para entrar em contato comigo.
