@@ -19,7 +19,7 @@ export default function Login() {
   }
 
   return (
-    <Sheet sx={{ display: 'flex', alignContent: 'center', textAlign: 'center', justifyContent: 'center', marginTop: '25vh' }}>
+    <Sheet sx={{ display: 'flex', alignContent: 'center', textAlign: 'center', justifyContent: 'center', marginTop: '25vh', backgroundColor: 'white' }}>
       <Card variant="elevation" sx={{ display: 'flex-col', width: '20rem', padding: '1.2rem', justifyContent: 'center', alignContent: 'center' }}>
         <Typography level="h1">Fazer Login</Typography>
         <form onSubmit={handleSubmit} >

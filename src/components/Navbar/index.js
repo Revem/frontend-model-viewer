@@ -38,7 +38,8 @@ export default function Navbar() {
                 <Link href="../mymodels" variant="solid"><MenuItem >Meus modelos</MenuItem></Link>
                 <Link href="/sendmodel" variant="solid" ><MenuItem  >Enviar Arquivo GLB</MenuItem></Link>
                 <Link onClick={logout} variant="solid" color="danger"><MenuItem >Sair</MenuItem></Link>
-              </>) : <Link href="/login" variant="solid"><MenuItem>Login</MenuItem></Link>}
+              </>) : (<><Link href="/login" variant="solid"><MenuItem>Login</MenuItem></Link> <Link href="/register" variant="solid" color="danger"><MenuItem>Criar Conta</MenuItem></Link></>)
+              }
             </div>
           </Typography>
         </Toolbar>

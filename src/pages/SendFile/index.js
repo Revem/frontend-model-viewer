@@ -1,5 +1,5 @@
 import { Button, FormControl, Sheet, Typography } from "@mui/joy";
-import { Card, TextField } from "@mui/material";
+import { Alert, Card, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../utils/api";
@@ -8,8 +8,10 @@ export default function SendFile() {
 
   const [token] = useState(localStorage.getItem('token') || '');
   const [model, setModel] = useState({ file: null });
-  const [preview, setPreview] = useState();
+  const [feedback, setFeedback] = useState(null);
   const Navigate = useNavigate()
+  let statusCode
+  let message
 
 
   useEffect(() => {
@@ -19,7 +21,6 @@ export default function SendFile() {
   }, []);
 
   function onFileChange(e) {
-    setPreview(URL.createObjectURL(e.target.files[0]));
     setModel({ ...model, file: e.target.files[0] });
   }
 
@@ -40,11 +41,16 @@ export default function SendFile() {
           'Content-Type': 'multipart/form-data',
         },
       });
-
-      console.log(response.data);
+      statusCode = response.status;
+      message = response.data.message;
+      console.log(response);
     } catch (error) {
+      statusCode = error.response.status;
+      message = error.response.data.message;
       console.error(error);
     }
+
+    setFeedback({ 'status': statusCode, message })
   }
 
   function handleSubmit(e) {
@@ -53,10 +59,15 @@ export default function SendFile() {
   }
 
   return (
-    <Sheet sx={{ display: 'flex', alignContent: 'center', textAlign: 'center', justifyContent: 'center', marginTop: '25vh' }}>
-      <Card variant="elevation" sx={{ display: 'flex-col', width: '50vh', padding: '1.2rem', justifyContent: 'center', alignContent: 'center' }}>
+    <Sheet sx={{ display: 'flex', justifyContent: 'center', padding: '24.45vh' }}>
+      <Card variant="elevation" sx={{ display: 'flex-col', width: '50vh', padding: '1.2rem', justifyContent: 'center', alignContent: 'center', textAlign: 'center' }}>
         <Typography level="h1">Enviar Modelo</Typography>
         <Typography level="h4" color="warning">Só serão aceitos modelos .glb</Typography>
+        {feedback ? (
+          <Alert severity={feedback.status === 201 ? 'success' : 'error'}>{feedback.status === 201 ? feedback.message : 'Por gentileza, envie apenas arquivos .glb'}</Alert>
+        ) : (
+          <></>
+        )}
         <form onSubmit={handleSubmit}>
           <FormControl sx={{ padding: '5rem', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
             <TextField onChange={handleChange} label="Nome" id="name" variant="standard" type="text" required sx={{ width: '8.5rem', marginLeft: '8vh' }} />

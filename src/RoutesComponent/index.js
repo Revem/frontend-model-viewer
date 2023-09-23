@@ -16,7 +16,6 @@ export default function RoutesComponent() {
         <Route path='mymodels' element={<MyModels />} />
         <Route path='register' element={<Register />} />
         <Route path='sendModel' element={<SendFile />} />
-
       </Routes>
     </div>
   )

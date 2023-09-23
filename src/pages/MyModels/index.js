@@ -1,4 +1,4 @@
-import { Button, Card, Grid, Modal, Sheet, Typography } from "@mui/joy";
+import { Button, Card, Modal, Sheet, Typography } from "@mui/joy";
 import { Box, TextField, } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,6 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -19,11 +18,14 @@ const style = {
 export default function MyModels() {
   const [models, setModels] = useState([])
   const [open, setOpen] = useState(false)
+  const [openVisual, setOpenVisual] = useState(false)
+  const [modelToVisualize, setModelToVisualize] = useState({});
   const [model, setModel] = useState({ file: null });
   const [token] = useState(localStorage.getItem('token') || '')
   const Navigate = useNavigate()
 
   const handleClose = () => setOpen(false);
+  const handleCloseVisual = () => setOpenVisual(false);
 
   function onFileChange(e) {
     setModel({ ...model, file: e.target.files[0] });
@@ -58,6 +60,11 @@ export default function MyModels() {
       setModels(updatedModels)
       console.log(response.data)
     }).catch((err) => console.log(err))
+  }
+
+  function onVisual(model) {
+    setModelToVisualize(model)
+    setOpenVisual(true)
   }
 
   function onEdit(id) {
@@ -99,30 +106,38 @@ export default function MyModels() {
   }
 
   return (
-    <Sheet>
-      <Typography level="h1">Meus Modelos</Typography>
-      <Card sx={{ marginTop: '5rem', padding: '0rem', alignContent: 'center', marginLeft: { xs: '15vw', s: '10vw', md: '0' } }}>
-        <Grid
-          container
-          spacing={2}
-          direction={{ xs: 'column', md: 'row' }}
-          alignItems={{ xs: 'start', md: "center" }}
-          justify="center"
-        >
-
+    <Sheet sx={{ backgroundColor: 'white', paddingLeft: '10rem', paddingRight: '10rem', paddingTop: '3rem' }}>
+      <Card sx={{ padding: '5rem', alignContent: 'center', marginLeft: { xs: '15vw', s: '10vw', md: '0' } }}>
+        <Typography level="h1">Meus Modelos</Typography>
+        <div className="grid grid-cols-4">
           {models.length > 0 && models.map((model) => (
-            <Grid item xs={2} key={model.id}>
-              <Card sx={{ width: { xs: '20vh', md: '40vh' }, height: '50vh' }}>
+            <div className="p-5" key={model.id}>
+              <Card sx={{ width: '15rem', textAlign: 'center' }}>
                 <Typography level="h4">{model.name}</Typography>
-                <model-viewer
-                  style={{ width: '100%', height: '100%' }}
-                  alt={model.name}
-                  src={`http://localhost:5000/models/${model.glb}`}
-                  ar
-                  shadow-intensity="1"
-                  camera-controls
-                  touch-action="pan-y"
-                ></model-viewer>
+                <Button color="primary" onClick={() => onVisual(model)} >Visualizar</Button>
+                <Modal
+                  open={openVisual}
+                  onClose={handleCloseVisual}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                      Visualizando {modelToVisualize.name}
+                    </Typography>
+                    <div className="w-96 h-96">
+                      <model-viewer
+                        style={{ width: '100%', height: '100%' }}
+                        src={`http://localhost:5000/models/${modelToVisualize.glb}`}
+                        ar
+                        shadow-intensity="1"
+                        camera-controls
+                        touch-action="pan-y"
+                      ></model-viewer>
+                      <Button color="danger" onClick={() => handleCloseVisual()}>Fechar</Button>
+                    </div>
+                  </Box>
+                </Modal>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                   <Button color="warning" onClick={() => onEdit(model.id)}>Editar</Button>
                   <Modal
@@ -136,10 +151,10 @@ export default function MyModels() {
                         Editar Modelo
                       </Typography>
                       <div>
-                        <TextField onChange={handleChange} label="Nome" id="name" variant="standard" type="text" required sx={{ width: '8.5rem', marginLeft: '12vh' }} />
+                        <TextField onChange={handleChange} label="Nome" id="name" variant="standard" type="text" required sx={{ width: '8.5rem' }} />
                       </div>
                       <div>
-                        <TextField onChange={onFileChange} id="file" type="file" variant="standard" inputProps={{ accept: ".glb" }} required sx={{ marginLeft: '12vh', width: '8.5rem' }} />
+                        <TextField onChange={onFileChange} id="file" type="file" variant="standard" inputProps={{ accept: ".glb" }} required sx={{ width: '8.5rem' }} />
                       </div>
                       <div style={{ marginTop: '2rem', justifyContent: 'space-around', display: 'flex' }}>
                         <Button color="warning" onClick={() => handleSubmit()} >Salvar</Button>
@@ -150,12 +165,12 @@ export default function MyModels() {
                   <Button color="danger" onClick={() => removeModel(model.id)}>Excluir</Button>
                 </div>
               </Card>
-            </Grid>
+            </div>
           ))}
           {models.length === 0 && <Typography level="h1"> Você não possui nenhum modelo</Typography>}
 
 
-        </Grid>
+        </div>
       </Card>
     </Sheet >
   )
