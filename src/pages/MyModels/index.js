@@ -1,4 +1,4 @@
-import { Button, Card, Modal, Sheet, Typography } from "@mui/joy";
+import { Card, Modal, Sheet, Typography } from "@mui/joy";
 import { Box, TextField, } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -113,8 +113,9 @@ export default function MyModels() {
           {models.length > 0 && models.map((model) => (
             <div className="p-5" key={model.id}>
               <Card sx={{ width: '15rem', textAlign: 'center' }}>
-                <Typography level="h4">{model.name}</Typography>
-                <Button color="primary" onClick={() => onVisual(model)} >Visualizar</Button>
+                <Typography level="h3">{model.name}</Typography>
+                <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/model/${model.id}`} />
+                <button className="text-xl border-2 p-2 rounded-xl border-pink-600 bg-pink-600 text-white text-pink-600  hover:bg-pink-700 transition-all duration-300" onClick={() => onVisual(model)} >Visualizar</button>
                 <Modal
                   open={openVisual}
                   onClose={handleCloseVisual}
@@ -122,10 +123,14 @@ export default function MyModels() {
                   aria-describedby="modal-modal-description"
                 >
                   <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                      Visualizando {modelToVisualize.name}
-                    </Typography>
+                    <div className="flex justify-between">
+                      <Typography id="modal-modal-title" variant="h6" component="h2">
+                        Visualizando {modelToVisualize.name}
+                      </Typography>
+                      <button className="text-xl border-2 p-2 rounded-xl bg-white border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300" onClick={() => handleCloseVisual()}>Fechar</button>
+                    </div>
                     <div className="w-96 h-96">
+
                       <model-viewer
                         style={{ width: '100%', height: '100%' }}
                         src={`http://localhost:5000/models/${modelToVisualize.glb}`}
@@ -134,12 +139,12 @@ export default function MyModels() {
                         camera-controls
                         touch-action="pan-y"
                       ></model-viewer>
-                      <Button color="danger" onClick={() => handleCloseVisual()}>Fechar</Button>
+
                     </div>
                   </Box>
                 </Modal>
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                  <Button color="warning" onClick={() => onEdit(model.id)}>Editar</Button>
+                  <button className="text-xl border-2 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300" onClick={() => onEdit(model.id)}>Editar</button>
                   <Modal
                     open={open}
                     onClose={handleClose}
@@ -151,18 +156,18 @@ export default function MyModels() {
                         Editar Modelo
                       </Typography>
                       <div>
-                        <TextField onChange={handleChange} label="Nome" id="name" variant="standard" type="text" required sx={{ width: '8.5rem' }} />
+                        <TextField onChange={handleChange} label="Nome" id="name" variant="standard" type="text" required sx={{ width: '8.5rem', marginLeft: '0.75rem' }} />
                       </div>
                       <div>
-                        <TextField onChange={onFileChange} id="file" type="file" variant="standard" inputProps={{ accept: ".glb" }} required sx={{ width: '8.5rem' }} />
+                        <TextField onChange={onFileChange} id="file" type="file" variant="standard" inputProps={{ accept: ".glb" }} required sx={{ width: '8.5rem', marginLeft: '0.75rem' }} />
                       </div>
                       <div style={{ marginTop: '2rem', justifyContent: 'space-around', display: 'flex' }}>
-                        <Button color="warning" onClick={() => handleSubmit()} >Salvar</Button>
-                        <Button color="danger" onClick={() => handleClose()}>Cancelar</Button>
+                        <button className="text-md border-2 m-3 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300" onClick={() => handleSubmit()} >Salvar</button>
+                        <button className="text-md border-2 m-3 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300" onClick={() => handleClose()}>Cancelar</button>
                       </div>
                     </Box>
                   </Modal>
-                  <Button color="danger" onClick={() => removeModel(model.id)}>Excluir</Button>
+                  <button className="text-xl border-2 p-2 rounded-xl border-red-600 bg-red-600 text-white  hover:bg-red-800  transition-all duration-300" onClick={() => removeModel(model.id)}>Excluir</button>
                 </div>
               </Card>
             </div>

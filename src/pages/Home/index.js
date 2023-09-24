@@ -1,6 +1,5 @@
-import { Button, Typography } from "@mui/joy";
+import { Typography } from "@mui/joy";
 import { Card } from "@mui/material";
-
 
 export default function Home() {
 
@@ -19,12 +18,13 @@ export default function Home() {
                 <div>
                   <Typography level='h1'>Visualize seus produtos e modelos em 3D e em Realidade Aumentada</Typography>
                 </div>
-
                 <div className="flex justify-between p-5 text-center">
-                  <Button sx={{ width: '10rem' }}><a href="/register" className="button w-button">Criar Conta</a></Button>
-                  <Button sx={{ width: '10rem' }}><a href="/login" className="button ghost w-button">Realizar Login</a></Button>
+                  <button className="text-xl border-2 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300" ><a href="/register" className="button w-button"><strong>Criar Conta</strong></a></button>
+                  <button className="text-xl border-2 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300" ><a href="/login" className="button ghost w-button"><strong>Realizar Login</strong></a></button>
                 </div>
               </Card>
+
+
             </div>
           </div>
         </section>

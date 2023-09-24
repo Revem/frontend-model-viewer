@@ -1,4 +1,4 @@
-import { Button, FormControl, Sheet, Typography } from "@mui/joy";
+import { FormControl, Sheet, Typography } from "@mui/joy";
 import { Alert, Card, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +62,7 @@ export default function SendFile() {
     <Sheet sx={{ display: 'flex', justifyContent: 'center', padding: '24.45vh' }}>
       <Card variant="elevation" sx={{ display: 'flex-col', width: '50vh', padding: '1.2rem', justifyContent: 'center', alignContent: 'center', textAlign: 'center' }}>
         <Typography level="h1">Enviar Modelo</Typography>
-        <Typography level="h4" color="warning">Só serão aceitos modelos .glb</Typography>
+        <Typography level="h4" color="warning"><span className="text-pink-600">Só serão aceitos modelos .glb</span></Typography>
         {feedback ? (
           <Alert severity={feedback.status === 201 ? 'success' : 'error'}>{feedback.status === 201 ? feedback.message : 'Por gentileza, envie apenas arquivos .glb'}</Alert>
         ) : (
@@ -72,7 +72,7 @@ export default function SendFile() {
           <FormControl sx={{ padding: '5rem', display: 'flex', justifyContent: 'center', alignContent: 'center' }}>
             <TextField onChange={handleChange} label="Nome" id="name" variant="standard" type="text" required sx={{ width: '8.5rem', marginLeft: '8vh' }} />
             <TextField onChange={onFileChange} id="file" type="file" variant="standard" inputProps={{ accept: ".glb" }} required sx={{ marginLeft: '8vh', width: '8.5rem' }} />
-            <Button type="submit" sx={{ marginTop: '2rem', width: '8.5rem', marginLeft: '8vh' }}>Enviar Modelo</Button>
+            <button type="submit" className="text-xl border-2 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300 mt-5 w-48 ml-12">Enviar Modelo</button>
           </FormControl>
         </form>
       </Card>

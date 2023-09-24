@@ -1,5 +1,4 @@
 
-import { Link } from "@mui/joy";
 import { AppBar, Container, MenuItem, Toolbar, Typography } from "@mui/material";
 import { useContext } from "react";
 
@@ -11,7 +10,7 @@ export default function Navbar() {
 
   return (
 
-    <AppBar position="static">
+    <AppBar position="static" sx={{ background: 'white', borderBottom: '1.5px solid #e83c76' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
           <Typography
@@ -25,20 +24,20 @@ export default function Navbar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'inherit',
+              color: 'gray',
               textDecoration: 'none',
             }}
           >
-            Model Viewer
+            <span className="p-2">Model</span> <span className="border-2 rounded-xl border-violet-400 p-2"> Viewer</span>
           </Typography>
           <Typography textAlign='center'>
-            <div>
-              <Link href=".." variant="solid"> <MenuItem >Inicio</MenuItem></Link>
+            <div className="flex ">
+              <a href=".." className='text-pink-600 hover:text-blue-500'> <MenuItem >Inicio</MenuItem></a>
               {authenticated ? (<>
-                <Link href="../mymodels" variant="solid"><MenuItem >Meus modelos</MenuItem></Link>
-                <Link href="/sendmodel" variant="solid" ><MenuItem  >Enviar Arquivo GLB</MenuItem></Link>
-                <Link onClick={logout} variant="solid" color="danger"><MenuItem >Sair</MenuItem></Link>
-              </>) : (<><Link href="/login" variant="solid"><MenuItem>Login</MenuItem></Link> <Link href="/register" variant="solid" color="danger"><MenuItem>Criar Conta</MenuItem></Link></>)
+                <a href="../mymodels" variant="solid" className='text-zinc-400 hover:text-blue-500'><MenuItem >Meus modelos</MenuItem></a>
+                <a href="/sendmodel" variant="solid" className='text-zinc-400 hover:text-blue-500'><MenuItem  >Enviar Arquivo GLB</MenuItem></a>
+                <a onClick={logout} variant="solid" className='text-zinc-400 hover:text-pink-600'><MenuItem >Sair</MenuItem></a>
+              </>) : (<><a href="/login" variant="solid" className='text-zinc-400 hover:text-blue-500'><MenuItem>Login</MenuItem></a> <a href="/register" variant="solid" className='text-zinc-400 hover:text-blue-500'><MenuItem>Criar Conta</MenuItem></a></>)
               }
             </div>
           </Typography>

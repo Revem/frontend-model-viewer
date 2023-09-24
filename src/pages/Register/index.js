@@ -1,4 +1,4 @@
-import { Button, FormControl, Link, Sheet, Typography } from "@mui/joy";
+import { FormControl, Sheet, Typography } from "@mui/joy";
 import { Card } from "@mui/material";
 import { useContext, useState } from "react";
 import Input from "../../components/Input";
@@ -29,10 +29,10 @@ export default function Register() {
             <Input label="E-mail" id="email" variant="standard" type="email" onChange={handleChange} required />
             <Input label="Senha" id="password" variant="standard" type="password" onChange={handleChange} required />
             <Input label="Confirmar Senha" id="confirmPassword" variant="standard" type="password" onChange={handleChange} required />
-            <Button type="submit" sx={{ marginTop: '2rem' }}>Criar conta</Button>
+            <button type="submit" className="text-xl border-2 p-2 rounded-xl border-pink-600 text-pink-600 hover:text-white hover:bg-pink-600 transition-all duration-300 mt-5">Registrar</button>
           </FormControl>
         </form>
-        <Typography sx={{ textAlign: 'center' }}><Link href="../login">Entrar em uma conta existente</Link></Typography>
+        <Typography sx={{ textAlign: 'center' }}><a className="text-pink-600" href="../login">Entrar em uma conta existente</a></Typography>
       </Card>
     </Sheet >
   )
