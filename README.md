@@ -5,7 +5,7 @@ Essa é a parte frontend do Desafio Técnico - Gerenciador de Arquivos GLB com I
 
 
 ![screenshot](https://cdn.discordapp.com/attachments/270850384573104129/1155317236077182986/6eedaa7d-6d3d-4de7-9448-96426f1e2577.png "Screenshot do projeto")
-  
+![screenshot](https://cdn.discordapp.com/attachments/270850384573104129/1155317238090453063/3904528e-cec7-49a1-84a0-32887742c913.png "Screenshot do projeto")
 Antes de iniciar a aplicação, certifique-se de que o banco de dados e o backend já estão rodando.
 ##  Instruções de Uso
 
